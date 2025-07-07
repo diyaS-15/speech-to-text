@@ -11,25 +11,22 @@ def load_whisper_model():
 model = load_whisper_model()
 
 st.title("Multilingual Transcriber")
+st.markdown("upload audio file or record directly to get transcription and translation.")
+
+result_text="Record Audio - no input available"
 
 #audiofile = st.file_uploader("upload audio file: ", type=["mp3", "wav", "m4a"])
 audiofile = st.audio_input("record audio")
-result = model.transcribe("testingaudio.m4a")
 
 if audiofile is not None: 
     with open("tempaudio.m4a", "wb") as f: 
         f.write(audiofile.getbuffer())
     
     result = model.transcribe("tempaudio.m4a")
+    result_text = result["text"]
 
-# ADD FEATURE: RECOGNIZE DIFFERENT SPEAKERS 
-
-
-
-
-# END FEATURE
 st.subheader("Transcription")
-st.write(result["text"])
+st.write(result_text)
 
 # LANGUAGE TRANSLATION FEATURE
 st.subheader("Translate")
