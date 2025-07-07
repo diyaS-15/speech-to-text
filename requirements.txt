@@ -2,5 +2,3 @@ streamlit==1.46.1
 git+https://github.com/openai/whisper.git
 deep-translator==1.11.4
 gTTS==2.5.4
-ffmpeg-python
-ffmpeg-static
