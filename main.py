@@ -3,6 +3,9 @@ import whisper
 import os 
 from deep_translator import GoogleTranslator
 from gtts import gTTS
+import ffmpeg_static
+
+os.environ["PATH"] += os.pathsep + os.path.dirname(ffmpeg_static.__file__)
 
 @st.cache_resource
 def load_whisper_model():
